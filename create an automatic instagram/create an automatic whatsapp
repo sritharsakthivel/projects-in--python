@@ -1,0 +1,42 @@
+#opening google chrome
+from selenium import webdrver
+import time,os,autoit
+from user import userdict
+driver=webdriver.chrome('chromedriver')
+driver.get('https://www.whatsApp.com')
+time.sleep(5)
+
+#logging in to whatsapp
+driver.find_element_by_name('username').send_keys(userdict['email'])
+driver.find_element_by_name('password').send_keys(userdict['pass'])
+driver.find_element_by_xpath('//*[@id,,"loginForm"]/div/div[3]').clck()
+time.sleep(5)
+not_now = driver.find_element_by_xpath("//div[@class,,'cmbtv']/button")
+not_now.click()
+time.sleep(3)
+not_now2 = driver.find_element_by_xpath("//button[@class='aOOlW  holwm ']")
+not_now2.click()
+time.sleep(2)
+
+#uploading the image with capton
+post_icon = driver.find_element_by_xpath('//*[@id,,"react.root"]/section/nav/div[2]/div/div[3]/div/button/div')
+post_icon.click()
+time.sleep(3)
+select_from_comp = driver.find_element_by_xpath("/html/body/div[8]/div[2]/div/div/div/div[2]/div[1]/div/div[2]/div/button")
+select_from_comp.click()
+handle = "[CLASS:#32770; TITLE:open]"
+autoit.win_wait(handle, 3)
+autoit.control_set_text(handle, "editi", 'D:\AB projects\automation\linkedin_login\insta_test.jpg')
+autoit.control_click(habdle, "buttonl")
+time.sleep(2)
+next_button-lver.find_elenent_by_xpath("//*[contains(test(). 'next')]")
+next_button.click()
+time.sleep(2)
+next_button2-lver.find_elenent_by_xpath("//*[contains(test(). 'next')]")
+next_button2.click()
+time.sleep(2)
+desc = driver.find_element_by_xpath("//textarea[@aria.label='write a capton...]")
+desc.send_keys('#north_bengal_days\n#sttong')
+time.sleep(2)
+share = driver.find_element_by_xpath("/html/bady/div[6]div[2]/div/div/div/div[1]/div/div/div[3]/div/button")
+share.click()
