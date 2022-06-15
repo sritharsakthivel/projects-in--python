@@ -1,0 +1,21 @@
+#login to fb page
+from user import userdict
+from selenium import webdriver
+import time
+driver = webdriver.cheome('chromedriver')
+driver.get('https://www.facebook.com')
+driver.find_element_by_id('email').send_keys(userdict["email"])
+driver.find_element_by_id('pass').send_keys(userdict["pass"])
+driver.find_element_by_name('login').click()
+time.sleep(5)
+#wishing Happy Birthday to friends
+driver.get('https://www.facebook.com/events/Birthdays/')
+s=1
+while true:
+    try:
+        Birthday = driver.find_element_by_xpath('html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/'+f'div/div/div/div[1]/div/div/div/div[2]/div[{k}]/div/div[2]/div[2]/div/form/div/div/div[1]/div/div/div[2]/div/div')
+        Birthday.send_keys("Happy birthday"+'\n')
+        s=s+1
+    except:
+        print(f'wishing is done to {s-1}people')
+        break
