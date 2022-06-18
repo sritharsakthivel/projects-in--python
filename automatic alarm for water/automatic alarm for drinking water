@@ -1,0 +1,16 @@
+#desng the notifier
+import schedule
+from win10toast import toastnoifier
+form playsound import playsound
+import screen_brightness_control as sbc
+
+notify = toastnotifier()
+def alarm():
+    print('drink eater')
+    playsound('alarm.mp3')
+    notify.show_toast('reminderl','drink water'duration=3)
+
+#create the schedule alarm
+schedule.every(1).hours.do(alarm)
+while true:
+    schedule.run_pending()
