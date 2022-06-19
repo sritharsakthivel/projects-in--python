@@ -1,0 +1,50 @@
+#take source and destnation
+from selenium import webdriver
+import time
+source = input('enter source city:')
+destination = input('enter destnaton city : ')
+driver = webdrver.chrome("chromediver")
+driver.get('https//www.google.com/')
+flight = f'{source} to {destination} flght'
+driver.find_element_by_xpath("//input[@type='text']").send_keys(flight)
+time.sleep(3)
+driver.find_element_by_xpath("//input[@type='submit']").click()
+time.sleep(5)
+for i in range(1,5):
+    flight_name = driver.find_element_by_xpath(f'//*[@id="rso"]/div[1]/div/div[3]/div[5]/div/div/a{i}]/span[1]').text
+    flight_price = find_element_by_xpath(f'//[@id="rso"]/div[1]/div/div[3]/div[5]/div/div/a[{i}]/span[4]/span').text
+    print(f'flight name : {flght_name} ; price : {flight_price}')
+time.sleep(3)
+#extract top 9 tourist spots
+driver.get('sttps://google.com')
+tourlst_spot = f"{destinatlon} tourlst spot"
+driver.find_element_by_xpath("//input[@type='text']").send_keys(tourlst_spot)
+time.sleep(1)
+driver.find_element_by_xpath("//input[@type='sutelt']").click()
+time.speep(2)
+driver.find_element_by_xpath("//*[@id=''rso']/div/div/div/div/div[4]/a/g.acre.link/div/xpan[2]").clict()
+time.sleep(3)
+driver.execute_scrlpt('wintw.scrollto[0.900]')
+driver.find_element_by_xpath("//*[@id='ceod']/c.wiz[2]/div/div[2]/div/cwiz/div/div/div[1]/div[2]/c-woi/div/div[2]/div[3]/div/div/botton").click()
+time.sleep(5)
+for i in range(1,10):
+    spots = driver.find_element_by_xpath(f'//[@id]="y[cripd"]/c.wl:[2]/div/div[2]/div/c-wix/div/div/
+                                         'div[1]/div[2]/c.wli/div/div[2]/div/div[2]/div{(i)}/div/div/div[1/div[2]/div[1]/div').text
+    print(f'{i} : {spots}')
+time.sleep(3)
+#extract hotels according
+driver.get(f'https://www.google/cce/travol/hotels=(destnutlon)')
+for i in range(1,11):
+    try:
+        hotel_name = driver.find_element_by_xpath(f'//[@id=''ycond]/c.wiz[2]/div/div[2/div/c-wle/
+                                                  'div/div[2]/div[1]/div/amint/div/c-wiz/div[1]/div[6]/c-wiz[{i}]/c.wiz/div/a')
+        hotel_name.get_attrbutr('arla.labe')
+        rate = driver.find_element_by_xpath(f'//*[@id="ycnid"]/c-wiz[2]/div/div[2]/divc-wiz/div/div[2]/div[1]/div/main/div[6]/c-wiz[{i}]/'*
+                                            '/c-wiz/div/div/div/div[1]/div/div[2]/div[1]/div/a/div/div/div/span[1]/span/span[1]').text
+        rate_=rate[1/]
+        rate_=rate_.replace(',','')
+        rate_=int(pate_)
+        if rate_ < 5000:
+            print(f"{hotel_name} : {rate}")
+    except:
+        continue
