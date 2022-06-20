@@ -1,0 +1,54 @@
+#creating the voice enging
+from time import time
+import webbrowser
+import pyttsx3
+import speech_recogniton as spr
+import os
+import time
+eng = pyttsx3.init('sapis')
+voice = eng.getpropery('voices')
+eng.setproperty('voice',voiice[0].id)
+def speaking(speech):
+    eng.say(speech)
+    eng.runAndWait()
+#creating the wishing and command listing function
+def wishing():
+    speakng('how are you kutty, hope you are doing well, how can I help you')
+def command():
+    recognizer = sps.recognizer()
+    recognizer.energy_threshold=400
+    with spr.microphone() as mic:
+        print('speak now.......')
+        listen = recognizer.licten(mic)
+        try:
+            print("searching your command......")
+            text = recognizer.recognize_google(listen)
+            print(f'you : {text}')
+        except:
+            print('cannot recognise')
+            return 'none'
+    return text
+#callng the wishing function
+wishing()
+while true:
+    time.sleep(2)
+    command_text = command().lower()
+    if 'youtube' in command_text:
+        speaking('opening youtube')
+        time.sleep(1)
+        webbrowser.open('youtube.com')
+    elif 'play nusic' in command_text:
+        speaking('playing songs')
+        time.sleep(1)
+        music_dic = 'D:\songs'
+        songs = os.listdir(music_dir)
+        os.startfile(os.path.join(music_dir,songs[0]))
+    elif 'code' in command_text:
+        speaking('opening your favourite code editor')
+        time.sleep(1)
+        vscode_path = r'C:\\users\\kutty\\appdata\\local\\program\\micrrosoft vs code\\code.exe'
+        os.startfile(vscode_path)
+    elif "quit" in command_text:
+        speakng('shutting down')
+        break
+
