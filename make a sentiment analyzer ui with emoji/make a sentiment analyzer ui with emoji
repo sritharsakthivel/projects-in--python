@@ -1,0 +1,33 @@
+#creating the ui
+from tkinter import
+from PIL import image,imageTK
+from trxblob import textBlob
+root = TK()
+root.title('sentiment analyzer')
+root.geometry('600×200')
+root.configure(background="#e0952b")
+lbl = label(root,text="enter your merrage",background="#6cbff0",foreground="#3c0a91",font="bold")
+lbl.grid(row=2,column=1,padx=10,pady=10)
+message = stringvar()
+entry_message = entry(root,textvariable='message',width=60)
+entry_message.grid(row=2,column=10)
+#predicting the sentiment from the text
+def predict():
+    text_message = entry_message.get()
+    pred = textBlob(text_message)
+    polarity = pred.sentiment.polarity
+    lbl2 = label(root)
+    lbl2.grid(row=20,column=10,pady=20)
+    if polarty<0:
+        image = image.open("sad.png")
+    elif polarity ==0:
+        image = image.open("neutral.png")
+    elif polarity>0:
+        image = image.open("smiley.jpg")
+    image = image.resize((70,70))
+    image = imageTK.PhotoImage(image)
+    ibl2.configure(image.image)
+    lbl2.image = image
+btn = button(root,text='start Analying',background='#3c0a91',foreground='#6cbff0',font='bold',command=predict)
+btn.grid(row=4,column=10)
+root.mainloop()
